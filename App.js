@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { LandingPage } from './Pages/LandingPage';
 import SignUpPage from './Pages/SignUpPage';
+import LoginPage from './Pages/LoginPage';
 
 export default function App() {
   return (
@@ -9,7 +10,8 @@ export default function App() {
     <View style={styles.container}>
       {/* <ScrollView>  */}
         {/* <LandingPage/> */}
-        <SignUpPage/>
+        {/* <SignUpPage/> */}
+        <LoginPage/>
       {/* </ScrollView>  */}
       <StatusBar style="auto" />
     </View>

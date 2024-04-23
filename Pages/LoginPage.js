@@ -9,46 +9,35 @@ import {
   Platform,
 } from "react-native";
 import { Formik } from "formik";
+import { AntDesign, FontAwesome } from "@expo/vector-icons";
 
-export const SignUpPage = () => {
+export const LoginPage = () => {
   return (
     <View style={styles.container}>
-      <Text style={[styles.heading, styles.text]}>Sign Up</Text>
+      <Text style={[styles.heading, styles.text]}>Login</Text>
       <Text style={[styles.subText, styles.text]}>
-        Sign up to start your Fitness journey.
+        Log in to level up your Fitness.
       </Text>
       <Image style={styles.img} source={require("../assets/Login.png")} />
 
-      <View style={styles.signUpContainer}>
+      <View style={styles.LoginContainer}>
         <Formik
-          initialValues={{ name: "", age: 0, email: "", phone:"", password: '' }}
+          initialValues={{
+            name: "",
+            age: 0,
+            email: "",
+            phone: "",
+            password: "",
+          }}
           onSubmit={(values) => console.log(values)}
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (
-            <View style={{ gap: Platform.OS==='ios'? 15:20}}>
-              <View style={{ marginBottom: Platform.OS==='ios'?'1.25%':'1%'}}>
-                <View style={styles.dataCategory}>
-                  <Text style={styles.dataCategoryText}>Name</Text>
-                </View>
-                <TextInput
-                  onChangeText={handleChange("name")}
-                  onBlur={handleBlur("name")}
-                  style={styles.data}
-                  value={values.name}
-                />
-              </View>
-              <View style={{ marginBottom: Platform.OS==='ios'?'1.25%':'1%'}}>
-                <View style={styles.dataCategory}>
-                  <Text style={styles.dataCategoryText}>Age</Text>
-                </View>
-                <TextInput
-                  onChangeText={handleChange("age")}
-                  onBlur={handleBlur("age")}
-                  style={styles.data}
-                  value={values.number}
-                />
-              </View>
-              <View style={{ marginBottom: Platform.OS==='ios'?'1.25%':'0.5%'}}>
+            <View style={{ gap: Platform.OS === "ios" ? 15 : 20 }}>
+              <View
+                style={{
+                  marginBottom: Platform.OS === "ios" ? "1.25%" : "0.5%",
+                }}
+              >
                 <View style={styles.dataCategory}>
                   <Text style={styles.dataCategoryText}>Email</Text>
                 </View>
@@ -59,18 +48,9 @@ export const SignUpPage = () => {
                   value={values.email}
                 />
               </View>
-              <View style={{ marginBottom: Platform.OS==='ios'?'1.25%':'1%'}}>
-                <View style={styles.dataCategory}>
-                  <Text style={styles.dataCategoryText}>Phone</Text>
-                </View>
-                <TextInput
-                  onChangeText={handleChange("phone")}
-                  onBlur={handleBlur("phone")}
-                  style={styles.data}
-                  value={values.phone}
-                />
-              </View>
-              <View style={{ marginBottom: Platform.OS==='ios'?'1.25%':'1%'}}>
+              <View
+                style={{ marginBottom: Platform.OS === "ios" ? "1.25%" : "1%" }}
+              >
                 <View style={styles.dataCategory}>
                   <Text style={styles.dataCategoryText}>Password</Text>
                 </View>
@@ -82,8 +62,22 @@ export const SignUpPage = () => {
                 />
               </View>
               <Pressable style={styles.btn} onPress={handleSubmit}>
-                <Text style={[styles.btnText, styles.text]}>Sign Up</Text>
+                <Text style={[styles.btnText, styles.text]}>Login</Text>
               </Pressable>
+              <Text style={[styles.loginUsing, { fontWeight: "500" }]}>
+                or log in using
+              </Text>
+              <View style={styles.loginUsingIconsContainer}>
+                <View style={styles.loginIcons}>
+                  <AntDesign name="twitter" size={22} color="#6C63FF" />
+                </View>
+                <View style={styles.loginIcons}>
+                  <AntDesign name="google" size={22} color="#6C63FF" />
+                </View>
+                <View style={styles.loginIcons}>
+                  <FontAwesome name="facebook-f" size={22} color="#6C63FF" />
+                </View>
+              </View>
             </View>
           )}
         </Formik>
@@ -92,12 +86,12 @@ export const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default LoginPage;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: '15%',
+    marginVertical: "15%",
     justifyContent: "space-evenly",
     alignItems: "center",
     marginHorizontal: "2%",
@@ -114,15 +108,15 @@ const styles = StyleSheet.create({
   subText: {
     fontSize: 18,
     fontWeight: "300",
-    paddingVertical: "0.5%",
+    marginTop: "-5%",
   },
   img: {
     width: 350,
     height: 250,
-    marginVertical: '1%',
+    marginVertical: "1%",
   },
   btn: {
-    marginTop: '2%',
+    marginTop: "2%",
     paddingHorizontal: "5%",
     paddingVertical: "3%",
     alignSelf: "stretch",
@@ -134,7 +128,7 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     color: "white",
   },
-  signUpContainer: {
+  LoginContainer: {
     marginVertical: "2%",
     alignSelf: "stretch",
   },
@@ -163,5 +157,23 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderColor: "#6C63FF",
     alignSelf: "stretch",
+  },
+  loginUsing: {
+    fontSize: 15,
+    textAlign: "center",
+  },
+  loginUsingIconsContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  loginIcons: {
+    padding: "2%",
+    backgroundColor: "#f1ebf5",
+    borderRadius: 50,
+    width: 45,
+    height: 45,
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: "2%",
   },
 });

@@ -3,6 +3,7 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 import { LandingPage } from './Pages/LandingPage';
 import SignUpPage from './Pages/SignUpPage';
 import LoginPage from './Pages/LoginPage';
+import SuccessPage from './Pages/SuccessPage';
 
 export default function App() {
   return (
@@ -11,7 +12,8 @@ export default function App() {
       {/* <ScrollView>  */}
         {/* <LandingPage/> */}
         {/* <SignUpPage/> */}
-        <LoginPage/>
+        {/* <LoginPage/> */}
+        <SuccessPage/>
       {/* </ScrollView>  */}
       <StatusBar style="auto" />
     </View>

@@ -1,13 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { LandingPage } from './Pages/LandingPage';
+import SignUpPage from './Pages/SignUpPage';
 
 export default function App() {
   return (
+    <>
     <View style={styles.container}>
-      <LandingPage/>
+      {/* <ScrollView>  */}
+        {/* <LandingPage/> */}
+        <SignUpPage/>
+      {/* </ScrollView>  */}
       <StatusBar style="auto" />
     </View>
+    </>
   );
 }
 

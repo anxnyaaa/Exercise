@@ -2,9 +2,10 @@ import React from "react";
 import { Image, View, Text, Pressable, StyleSheet } from "react-native";
 
 export const LandingPage = () => {
-  return (
+  return (    
     <View style={styles.container}>
-      <Text style={[styles.heading, styles.text]}>Welcome to Fitness App</Text>
+      <Text style={[styles.heading, styles.text]}>Welcome to</Text>
+      <Text style={[styles.mainText, styles.text]}>Fitness App</Text>
       <Text style={[styles.subText, styles.text]}>
         The all-in-one Ultimate Fitness Tracking App you need.
       </Text>
@@ -15,10 +16,10 @@ export const LandingPage = () => {
       <Pressable style={styles.btn}>
         <Text style={[styles.btnText, styles.text]}>Get Started</Text>
       </Pressable>
-      <View style={styles.signInContainer}>
-        <Text style={[styles.signIn, {fontWeight: '400'}]}>Already have an account? </Text>
+      <View style={styles.signUpContainer}>
+        <Text style={[styles.signUp, {fontWeight: '400'}]}>Already have an account? </Text>
         <Pressable>
-          <Text style={[styles.signIn, styles.signInBtn]}>Sign In </Text>
+          <Text style={[styles.signUp, styles.signUpBtn]}>Sign In </Text>
         </Pressable>
       </View>
     </View>
@@ -33,14 +34,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: "5%",
+    position: 'relative'
   },
   text: {
     textAlign: 'center'
   },
   heading: {
     fontSize: 24,
-    fontWeight: '800',
+    fontWeight: '500',
     paddingVertical: "1%",
+  },
+  mainText: {
+    fontSize: 28,
+    fontWeight: '700',
+    padding: "1.5%",
+    marginBottom: '4%',
+    backgroundColor: '#6C63FF',
+    color: 'white',
+    transform: [{rotate:'-2.5deg'}]    
   },
   subText: {
     fontSize: 18,
@@ -63,15 +74,15 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: "white",
   },
-  signInContainer: { 
+  signUpContainer: { 
     flexDirection: "row", 
     gap: 4
   },
-  signIn: {
+  signUp: {
     fontSize: 15,
     paddingVertical: "5%",
   },
-  signInBtn: {
+  signUpBtn: {
     fontWeight: '600',
     color: "#6C63FF",
   },
